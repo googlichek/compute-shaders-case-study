@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class AssignTexture : MonoBehaviour
@@ -40,6 +39,8 @@ public class AssignTexture : MonoBehaviour
         _kernelHandle = _shader.FindKernel("CSMain");
         _shader.SetTexture(_kernelHandle, "Result", _outputTexture);
         _renderer.material.SetTexture("_MainTex", _outputTexture);
+
+        DispatchShader(_texResolution / 16, _texResolution / 16);
     }
 
     private void DispatchShader(int x, int y)

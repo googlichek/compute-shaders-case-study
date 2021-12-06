@@ -7,7 +7,7 @@ RWTexture2D<float4> Result;
 int texResolution;
 int marble;
 
-#include "noiseSimplex.cginc"
+#include "Assets/Shaders/cginc/noiseSimplex.cginc"
 
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)

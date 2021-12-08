@@ -17,7 +17,7 @@ public class NightVision : BasePostProcessing
 
     private void OnValidate()
     {
-        if(!init)
+        if(!isInitialized)
             Init();
            
         SetProperties();

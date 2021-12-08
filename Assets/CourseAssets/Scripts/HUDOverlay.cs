@@ -10,7 +10,7 @@ public class HUDOverlay : BasePostProcessing
 
     private void OnValidate()
     {
-        if (!init)
+        if (!isInitialized)
             Init();
 
         SetProperties();

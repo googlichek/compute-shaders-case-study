@@ -25,7 +25,7 @@ public class RingHighlight : BasePostProcessing
 
     private void OnValidate()
     {
-        if(!init)
+        if(!isInitialized)
             Init();
 
         SetProperties();
@@ -33,7 +33,7 @@ public class RingHighlight : BasePostProcessing
 
     protected override void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        if (!init || shader == null)
+        if (!isInitialized || shader == null)
         {
             Graphics.Blit(source, destination);
         }

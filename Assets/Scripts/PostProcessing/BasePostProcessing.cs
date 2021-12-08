@@ -18,7 +18,7 @@ public class BasePostProcessing : MonoBehaviour
     protected string kernelName = "CSMain";
 
     protected int kernelHandle = -1;
-    protected bool init = default;
+    protected bool isInitialized = false;
 
     protected virtual void OnEnable()
     {
@@ -27,7 +27,7 @@ public class BasePostProcessing : MonoBehaviour
 
     protected virtual void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        if (!init || shader == null)
+        if (!isInitialized || shader == null)
         {
             Graphics.Blit(source, destination);
         }
@@ -41,13 +41,13 @@ public class BasePostProcessing : MonoBehaviour
     protected virtual void OnDisable()
     {
         ClearTextures();
-        init = false;
+        isInitialized = false;
     }
 
     protected virtual void OnDestroy()
     {
         ClearTextures();
-        init = false;
+        isInitialized = false;
     }
 
     protected virtual void Init()
@@ -74,7 +74,7 @@ public class BasePostProcessing : MonoBehaviour
 
         CreateTextures();
 
-        init = true;
+        isInitialized = true;
     }
 
     protected virtual void ClearTextures()

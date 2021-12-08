@@ -19,7 +19,7 @@ public class Challenge3 : BasePostProcessing
 
     private void OnValidate()
     {
-        if(!init)
+        if(!isInitialized)
             Init();
            
         SetProperties();
@@ -37,7 +37,7 @@ public class Challenge3 : BasePostProcessing
 
     protected override void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        if (!init || shader == null)
+        if (!isInitialized || shader == null)
         {
             Graphics.Blit(source, destination);
         }
